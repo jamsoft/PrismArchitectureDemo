@@ -1,2 +1,2 @@
 # PrismArchitectureDemo
-An example of how you might structure a PRISM based application
+An example of how you might structure a PRISM based application.  This is currently using PRISM 4 and needs a bit of updating but it still gives some useful guidance for developers new to PRISM.
