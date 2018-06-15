@@ -228,6 +228,8 @@
     <PostBuildEvent>copy /y "$(TargetDir)Microsoft.Practices.ServiceLocation.dll" "$(SolutionDir)Build\External\"
 copy /y "$(TargetDir)System.Windows.Interactivity.dll" "$(SolutionDir)Build\External\"
 copy /y "$(TargetDir)Microsoft.Practices.*.*" "$(SolutionDir)Build\External\"
-copy /y "$(TargetDir)Prism.*.*" "$(SolutionDir)Build\External\"</PostBuildEvent>
+copy /y "$(TargetDir)Prism.*.*" "$(SolutionDir)Build\External\"
+copy /y "$(TargetDir)JamSoft.NET.*.*" "$(SolutionDir)Build\Internal\"
+copy /y "$(TargetDir)JamSoft.Wpf.*.*" "$(SolutionDir)Build\Internal\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
