@@ -1,10 +1,12 @@
 ﻿using System.Configuration;
+using System.Windows;
+
 namespace JamSoft.Prism
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App
+    public partial class App : Application
     {
         protected override void OnStartup(System.Windows.StartupEventArgs e)
         {

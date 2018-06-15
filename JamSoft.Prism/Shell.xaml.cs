@@ -1,4 +1,5 @@
-﻿using JamSoft.Prism.Core;
+﻿using System.Windows;
+using JamSoft.Prism.Core;
 using JamSoft.Prism.ViewModels;
 
 namespace JamSoft.Prism
@@ -6,12 +7,13 @@ namespace JamSoft.Prism
     /// <summary>
     /// Interaction logic for Shell.xaml
     /// </summary>
-    public partial class Shell : IShell
+    public partial class Shell : Window, IShell
     {
         public Shell(IShellViewModel viewModel)
         {
             InitializeComponent();
-            this.Model = viewModel;
+            
+            Model = viewModel;
 
             Closing += (s, e) =>
             {

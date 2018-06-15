@@ -2,17 +2,17 @@
 using JamSoft.Prism.Core;
 using JamSoft.Prism.Services;
 using JamSoft.Prism.ViewModels;
-using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
+using Prism.Modularity;
+using Prism.Unity;
 
 namespace JamSoft.Prism
 {
     /// <summary>
     /// The main application bootstrapper class
     /// </summary>
-    /// <seealso cref="Microsoft.Practices.Prism.UnityExtensions.UnityBootstrapper" />
+    /// <seealso cref="UnityBootstrapper" />
     public class JamSoftBootstrapper : UnityBootstrapper
     {
         /// <summary>
