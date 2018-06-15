@@ -1,38 +1,63 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Forms;
 using JamSoft.NET;
 using JamSoft.Prism.Core;
 using JamSoft.Wpf.Mvvm;
-using System.Configuration;
-using System.Windows;
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace JamSoft.Prism.ViewModels
 {
+    /// <summary>
+    /// The main application shell view model
+    /// </summary>
+    /// <seealso cref="JamSoft.Wpf.Mvvm.DependencyViewModelBase" />
+    /// <seealso cref="JamSoft.Prism.ViewModels.IShellViewModel" />
     public class ShellViewModel : DependencyViewModelBase, IShellViewModel
     {
-        private readonly IMainMenuBuilderService _mainMenuBuilderService;
-
         private string _appName;
-        public string AppName
-        {
-            get { return _appName; }
-            set { _appName = value; OnPropertyChanged(() => Name); }
-        }
-
-        public ShellViewModel(IMainMenuBuilderService menuService)
-        {
-            AppName = string.Format("{0} v{1}", System.Windows.Forms.Application.ProductName, System.Windows.Forms.Application.ProductVersion);
-            _mainMenuBuilderService = menuService;
-            Menu = _mainMenuBuilderService.Menu.ToObservableCollection();
-        }
 
         private ObservableCollection<MenuItemViewModel> _menu;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ShellViewModel"/> class.
+        /// </summary>
+        /// <param name="menuService">The menu service.</param>
+        public ShellViewModel(IMainMenuBuilderService menuService)
+        {
+            AppName = $"{Application.ProductName} v{Application.ProductVersion}";
+            Menu = menuService.Menu.ToObservableCollection();
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the application.
+        /// </summary>
+        /// <value>
+        /// The name of the application.
+        /// </value>
+        public string AppName
+        {
+            get => _appName;
+            set
+            {
+                _appName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the menu.
+        /// </summary>
+        /// <value>
+        /// The menu.
+        /// </value>
         public ObservableCollection<MenuItemViewModel> Menu
         {
-            get { return _menu; }
+            get => _menu;
             set
             {
                 _menu = value;
-                OnPropertyChanged(() => Menu);
+                OnPropertyChanged();
             }
         }
     }

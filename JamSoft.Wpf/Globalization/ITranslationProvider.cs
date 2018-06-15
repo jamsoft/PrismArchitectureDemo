@@ -20,6 +20,5 @@ namespace JamSoft.Wpf.Globalization
         /// </summary>
         /// <value>The available languages.</value>
         IEnumerable<CultureInfo> Languages { get; }
-
     }
 }

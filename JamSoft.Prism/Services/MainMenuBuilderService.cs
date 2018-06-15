@@ -1,63 +1,80 @@
-﻿using JamSoft.Prism.Core;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System;
+using System.Windows.Media.Imaging;
+using JamSoft.Prism.Core;
+// ReSharper disable UnusedMember.Local
 
 namespace JamSoft.Prism.Services
 {
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="JamSoft.Prism.Core.IMainMenuBuilderService" />
     public class MainMenuBuilderService : IMainMenuBuilderService
     {
-        private List<MenuItemViewModel> _menu;
-        public List<MenuItemViewModel> Menu
-        {
-            get { return _menu; }
-            set { _menu = value; }
-        }
+        private MenuItemViewModel _viewMenu;
 
-        private MenuItemViewModel _fileMenu;
-        public MenuItemViewModel FileMenu
-        {
-            get { return _fileMenu; }
-            set { _fileMenu = value; }
-        }
-
-        private MenuItemViewModel _editMenu;
-        public MenuItemViewModel EditMenu
-        {
-            get { return _editMenu; }
-            set { _editMenu = value; }
-        }
-
-        public MenuItemViewModel _viewMenu;
-        public MenuItemViewModel ViewMenu
-        {
-            get { return _viewMenu; }
-            set { _viewMenu = value; }
-        }
-
-        private MenuItemViewModel _helpMenu;
-        public MenuItemViewModel HelpMenu
-        {
-            get { return _helpMenu; }
-            set { _helpMenu = value; }
-        }
-
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="MainMenuBuilderService" /> class.
+        /// </summary>
         public MainMenuBuilderService()
         {
-            _menu = new List<MenuItemViewModel>();
+            Menu = new List<MenuItemViewModel>();
 
-            _fileMenu = new MenuItemViewModel { Header = "_File" };
-            _fileMenu.Children.Add(new MenuItemViewModel(true));
-            _fileMenu.Children.Add(new MenuItemViewModel { Header = "_New" });
+            FileMenu = new MenuItemViewModel {Header = "_File"};
+            FileMenu.Children.Add(new MenuItemViewModel(true));
+            FileMenu.Children.Add(new MenuItemViewModel {Header = "_New"});
 
-            _menu.Add(_fileMenu);
-            _menu.Add(_editMenu);
-            _menu.Add(_viewMenu);
-            _menu.Add(_helpMenu);
+            Menu.Add(FileMenu);
+            Menu.Add(EditMenu);
+            Menu.Add(_viewMenu);
+            Menu.Add(HelpMenu);
         }
 
+        /// <summary>
+        /// Gets or sets the menu.
+        /// </summary>
+        /// <value>
+        /// The menu.
+        /// </value>
+        public List<MenuItemViewModel> Menu { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file menu.
+        /// </summary>
+        /// <value>
+        /// The file menu.
+        /// </value>
+        public MenuItemViewModel FileMenu { get; set; }
+
+        /// <summary>
+        /// Gets or sets the edit menu.
+        /// </summary>
+        /// <value>
+        /// The edit menu.
+        /// </value>
+        public MenuItemViewModel EditMenu { get; set; }
+
+        /// <summary>
+        /// Gets or sets the view menu.
+        /// </summary>
+        /// <value>
+        /// The view menu.
+        /// </value>
+        public MenuItemViewModel ViewMenu
+        {
+            get => _viewMenu;
+            set => _viewMenu = value;
+        }
+
+        public MenuItemViewModel HelpMenu { get; set; }
+
+        /// <summary>
+        ///     Creates the image.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns></returns>
         private static Image CreateImage(string url)
         {
             var image = new Image

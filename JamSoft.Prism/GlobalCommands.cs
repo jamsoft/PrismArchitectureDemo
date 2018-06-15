@@ -8,6 +8,9 @@ namespace JamSoft.Prism
     /// </summary>
     internal static class GlobalCommands
     {
+        /// <summary>
+        /// The shutdown command
+        /// </summary>
         internal static CompositeCommand ShutdownCommand = new CompositeCommand(true);
     }
 }

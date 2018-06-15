@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq.Expressions;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
+// ReSharper disable UnusedMember.Global
 
 [assembly: XmlnsDefinition("http://jamsoft.co.uk/wpf/windows", "JamSoft.Wpf.Mvvm"), 
            XmlnsPrefix("http://jamsoft.co.uk/wpf/windows", "jsmvvm")]
@@ -16,26 +16,27 @@ namespace JamSoft.Wpf.Mvvm
     {
         #region Members
 
-        private static bool _designMode = false;
-        //private static bool _osBinding = false;
+        private static bool _designMode;
         private string _name = string.Empty;
-        private event PropertyChangedEventHandler _propertyChanged;
+        private event PropertyChangedEventHandler PrivatepropertyChanged;
 
         #endregion
 
-        #region Public methods
+        #region Public Properties
+
         /// <summary>
         /// Get or set the name of the view model
         /// </summary>
+        // ReSharper disable once MemberCanBeProtected.Global
         public string Name
         {
-            get { return _name; }
+            get => _name;
             set 
             {
                 if (_name != value)
                 {
                     _name = value;
-                    OnPropertyChanged(() => Name);
+                    OnPropertyChanged();
                 }
             }
         }
@@ -45,38 +46,16 @@ namespace JamSoft.Wpf.Mvvm
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged
         {
-            add { _propertyChanged += value; }
-            remove { _propertyChanged -= value; }
-        }
-
-        /// <summary>
-        /// Handle the shutting down of items in the ViewModel.
-        /// </summary>
-        public virtual void Shutdown()
-        {
-        }
-
-        /// <summary>
-        /// Get the resources associated with this ViewModel.
-        /// </summary>
-        /// <remarks>
-        /// In order to make effective use of resources in the ViewModel, you need to install the ResXFileCodeGeneratorEx utility
-        /// found <see href="http://www.codeproject.com/KB/dotnet/ResXFileCodeGeneratorEx.aspx">here</see>. This utility works 
-        /// round limitations of the ResXFileCodeGenerator tool which generates the resource as internal.
-        /// </remarks>
-        public virtual object Resources
-        {
-            get
-            {
-                return null;
-            }
+            add => PrivatepropertyChanged += value;
+            remove => PrivatepropertyChanged -= value;
         }
 
         #endregion
 
         #region Protected methods
+
         /// <summary>
-        /// Initializes a new instance of <see cref="ViewModelBase"/>.
+        /// Initializes a new instance of <see cref="DependencyViewModelBase"/>.
         /// </summary>
         protected DependencyViewModelBase()
         {
@@ -88,13 +67,15 @@ namespace JamSoft.Wpf.Mvvm
         /// </summary>
         protected void CultureChanged()
         {
+            // ReSharper disable once ExplicitCallerInfoArgument
             OnPropertyChanged("Resource");
         }
 
         /// <summary>
         /// Initialize the instance.
         /// </summary>
-        protected virtual void OnInitialize()
+        // ReSharper disable once VirtualMemberNeverOverridden.Global
+        private void OnInitialize()
         {
             _designMode = DesignerProperties.GetIsInDesignMode(new Button())
                 || Application.Current == null || Application.Current.GetType() == typeof(Application);
@@ -117,6 +98,7 @@ namespace JamSoft.Wpf.Mvvm
         /// With this method, we can inject design time data into the view so that we can
         /// create a more Blendable application.
         /// </summary>
+        // ReSharper disable once VirtualMemberNeverOverridden.Global
         protected virtual void DesignData()
         {
         }
@@ -127,35 +109,17 @@ namespace JamSoft.Wpf.Mvvm
         /// <remarks>
         /// I'd like to thank Laurent Bugnion for the design mode code. Take a look at MvvmLight for this.
         /// </remarks>
-        protected bool IsInDesignMode
-        {
-            get
-            {
-                return _designMode;
-            }
-        }
+        protected bool IsInDesignMode => _designMode;
 
         #region Changed handlers
 
         /// <summary>
-        /// Call this when a property changes.
+        /// Called when [property changed].
         /// </summary>
-        /// <param name="expression">The expression that identifies what has changed.</param>
-        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> expression)
+        /// <param name="propertyName">Name of the property.</param>
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            OnPropertyChanged(expression.Name);
-        }
-
-        /// <summary>
-        /// This method calls the <see cref="PropertyChangedEventHandler"/> handler.
-        /// </summary>
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = _propertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PrivatepropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion

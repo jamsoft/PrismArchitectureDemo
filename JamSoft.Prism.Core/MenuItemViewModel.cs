@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
-using JamSoft.Wpf.Mvvm;
 using System.Windows.Markup;
+using JamSoft.Wpf.Mvvm;
 
 [assembly: XmlnsDefinition("http://jamsoft.co.uk/wpf/prism", "JamSoft.Prism.Core"),
            XmlnsPrefix("http://jamsoft.co.uk/wpf/prism", "jsprism")]
@@ -10,84 +10,123 @@ namespace JamSoft.Prism.Core
 {
     public class MenuItemViewModel : LightViewModelBase
     {
-        private string _header;
-        private bool _isEnabled = true;
         private ICommand _command;
+        private string _header;
         private Image _icon;
         private string _inputGestureText;
-        private ObservableCollection<MenuItemViewModel> _children;
+        private bool _isEnabled = true;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MenuItemViewModel"/> class.
+        /// </summary>
         public MenuItemViewModel()
         {
             Children = new ObservableCollection<MenuItemViewModel>();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MenuItemViewModel"/> class.
+        /// </summary>
+        /// <param name="isSeparator">if set to <c>true</c> [is separator].</param>
         public MenuItemViewModel(bool isSeparator) : this()
         {
-            _isSeparator = isSeparator;
+            IsSeparator = isSeparator;
         }
 
+        /// <summary>
+        /// Gets or sets the header.
+        /// </summary>
+        /// <value>
+        /// The header.
+        /// </value>
         public string Header
         {
-            get { return _header; }
+            get => _header;
             set
             {
                 _header = value;
-                OnPropertyChanged(() => Header);
+                OnPropertyChanged();
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is enabled.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+        /// </value>
         public bool IsEnabled
         {
-            get { return _isEnabled; }
+            get => _isEnabled;
             set
             {
                 _isEnabled = value;
-                OnPropertyChanged(() => IsEnabled);
+                OnPropertyChanged();
             }
         }
 
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
+        /// <value>
+        /// The command.
+        /// </value>
         public ICommand Command
         {
-            get { return _command; }
+            get => _command;
             set
             {
                 _command = value;
-                OnPropertyChanged(() => Command);
+                OnPropertyChanged();
             }
         }
 
+        /// <summary>
+        /// Gets or sets the icon.
+        /// </summary>
+        /// <value>
+        /// The icon.
+        /// </value>
         public Image Icon
         {
-            get { return _icon; }
+            get => _icon;
             set
             {
                 _icon = value;
-                OnPropertyChanged(() => Icon);
+                OnPropertyChanged();
             }
         }
 
+        /// <summary>
+        /// Gets or sets the input gesture text.
+        /// </summary>
+        /// <value>
+        /// The input gesture text.
+        /// </value>
         public string InputGestureText
         {
-            get { return _inputGestureText; }
+            get => _inputGestureText;
             set
             {
                 _inputGestureText = value;
-                OnPropertyChanged(() => InputGestureText);
+                OnPropertyChanged();
             }
         }
 
-        public ObservableCollection<MenuItemViewModel> Children
-        {
-            get { return _children; }
-            set { _children = value; }
-        }
+        /// <summary>
+        /// Gets or sets the children.
+        /// </summary>
+        /// <value>
+        /// The children.
+        /// </value>
+        public ObservableCollection<MenuItemViewModel> Children { get; set; }
 
-        private bool _isSeparator;
-        public bool IsSeparator
-        {
-            get { return _isSeparator; }
-            set { _isSeparator = value; }
-        }
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is separator.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is separator; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsSeparator { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using JamSoft.Prism.ViewModels;
+﻿using JamSoft.Prism.Core;
+using JamSoft.Prism.ViewModels;
 
 namespace JamSoft.Prism
 {
@@ -21,7 +22,7 @@ namespace JamSoft.Prism
 
         public object Model
         {
-            set { DataContext = value; }
+            set => DataContext = value;
         }
     }
 }

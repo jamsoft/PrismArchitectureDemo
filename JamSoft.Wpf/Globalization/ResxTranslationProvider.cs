@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Resources;
 using System.Reflection;
 using System.Globalization;
@@ -51,7 +48,9 @@ namespace JamSoft.Wpf.Globalization
         #region ITranslationProvider Members
 
         /// <summary>
-        /// See <see cref="ITranslationProvider.AvailableLanguages" />
+        /// See <see>
+        ///         <cref>ITranslationProvider.AvailableLanguages</cref>
+        ///     </see>
         /// </summary>
         public IEnumerable<CultureInfo> Languages
         {
