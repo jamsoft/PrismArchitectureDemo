@@ -28,6 +28,10 @@ namespace JamSoft.Prism.Services
             FileMenu.Children.Add(new MenuItemViewModel(true));
             FileMenu.Children.Add(new MenuItemViewModel {Header = "_New"});
 
+            EditMenu = new MenuItemViewModel {Header = "_Edit"};
+            ViewMenu = new MenuItemViewModel {Header = "_View"};
+            HelpMenu = new MenuItemViewModel {Header = "_Help"};
+
             Menu.Add(FileMenu);
             Menu.Add(EditMenu);
             Menu.Add(ViewMenu);
