@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using JamSoft.Prism.Core;
 using JamSoft.Prism.Core.Services;
+using JamSoft.Prism.Core.ViewModels;
 
 // ReSharper disable UnusedMember.Local
 

@@ -22,6 +22,12 @@ namespace JamSoft.Prism
             };
         }
 
+        /// <summary>
+        /// Sets the main shell view model instance.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
         public object Model
         {
             set => DataContext = value;

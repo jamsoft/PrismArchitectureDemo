@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using JamSoft.Prism.Core;
+using JamSoft.Prism.Core.ViewModels;
 
 namespace JamSoft.Prism
 {

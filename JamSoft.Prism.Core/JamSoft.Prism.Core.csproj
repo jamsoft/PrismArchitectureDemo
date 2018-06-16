@@ -63,6 +63,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalCommands.cs" />
+    <Compile Include="Services\ApplicationServices.cs" />
     <Compile Include="Services\IApplicationServices.cs" />
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IMainMenuBuilderService.cs" />

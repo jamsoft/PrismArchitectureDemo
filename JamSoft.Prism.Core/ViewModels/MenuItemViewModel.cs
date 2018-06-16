@@ -6,7 +6,7 @@ using JamSoft.Wpf.Mvvm;
 
 [assembly: XmlnsDefinition("http://jamsoft.co.uk/wpf/prism", "JamSoft.Prism.Core"),
            XmlnsPrefix("http://jamsoft.co.uk/wpf/prism", "jsprism")]
-namespace JamSoft.Prism.Core
+namespace JamSoft.Prism.Core.ViewModels
 {
     public class MenuItemViewModel : LightViewModelBase
     {

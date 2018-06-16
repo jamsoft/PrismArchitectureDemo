@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using JamSoft.NET;
-using JamSoft.Prism.Core;
 using JamSoft.Prism.Core.Services;
+using JamSoft.Prism.Core.ViewModels;
 using JamSoft.Wpf.Mvvm;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ClassNeverInstantiated.Global

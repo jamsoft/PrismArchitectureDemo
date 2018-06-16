@@ -1,9 +1,8 @@
 ﻿using System.Windows.Input;
-using JamSoft.Prism.Core.Services;
 
 // ReSharper disable ClassNeverInstantiated.Global
 
-namespace JamSoft.Prism.Services
+namespace JamSoft.Prism.Core.Services
 {
     /// <summary>
     /// Manages global commands

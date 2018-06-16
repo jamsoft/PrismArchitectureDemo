@@ -120,7 +120,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GlobalCommands.cs" />
     <Compile Include="JamSoftBootstrapper.cs" />
     <Compile Include="MenuItemStyleSelector.cs" />
     <Compile Include="Properties\Resource.de.Designer.cs">
@@ -140,7 +139,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Services\ApplicationServices.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\MainMenuBuilderService.cs" />
     <Compile Include="Shell.xaml.cs">

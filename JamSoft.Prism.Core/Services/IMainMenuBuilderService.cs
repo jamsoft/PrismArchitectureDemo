@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JamSoft.Prism.Core.ViewModels;
 
 namespace JamSoft.Prism.Core.Services
 {
