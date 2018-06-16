@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using JamSoft.NET;
 using JamSoft.Prism.Core;
+using JamSoft.Prism.Core.Services;
 using JamSoft.Wpf.Mvvm;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ClassNeverInstantiated.Global

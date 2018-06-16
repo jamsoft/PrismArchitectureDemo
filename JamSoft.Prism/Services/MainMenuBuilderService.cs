@@ -4,13 +4,15 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using JamSoft.Prism.Core;
+using JamSoft.Prism.Core.Services;
+
 // ReSharper disable UnusedMember.Local
 
 namespace JamSoft.Prism.Services
 {
     /// <summary>
     /// </summary>
-    /// <seealso cref="JamSoft.Prism.Core.IMainMenuBuilderService" />
+    /// <seealso cref="IMainMenuBuilderService" />
     public class MainMenuBuilderService : IMainMenuBuilderService
     {
         private MenuItemViewModel _viewMenu;
@@ -28,7 +30,7 @@ namespace JamSoft.Prism.Services
 
             Menu.Add(FileMenu);
             Menu.Add(EditMenu);
-            Menu.Add(_viewMenu);
+            Menu.Add(ViewMenu);
             Menu.Add(HelpMenu);
         }
 

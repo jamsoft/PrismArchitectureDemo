@@ -195,6 +195,10 @@
       <Project>{0F0B57EB-359A-4AA0-B6A2-AC63FD9E2FC2}</Project>
       <Name>JamSoft.Prism.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JamSoft.Prism.Styles\JamSoft.Prism.Styles.csproj">
+      <Project>{17b12ad1-0ce1-4a2d-b982-d9e0a55af49c}</Project>
+      <Name>JamSoft.Prism.Styles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JamSoft.Wpf\JamSoft.Wpf.csproj">
       <Project>{08C2281B-AA84-4C50-A11B-FE05A9ACEE2D}</Project>
       <Name>JamSoft.Wpf</Name>
@@ -230,6 +234,7 @@ copy /y "$(TargetDir)System.Windows.Interactivity.dll" "$(SolutionDir)Build\Exte
 copy /y "$(TargetDir)Microsoft.Practices.*.*" "$(SolutionDir)Build\External\"
 copy /y "$(TargetDir)Prism.*.*" "$(SolutionDir)Build\External\"
 copy /y "$(TargetDir)JamSoft.NET.*.*" "$(SolutionDir)Build\Internal\"
-copy /y "$(TargetDir)JamSoft.Wpf.*.*" "$(SolutionDir)Build\Internal\"</PostBuildEvent>
+copy /y "$(TargetDir)JamSoft.Wpf.*.*" "$(SolutionDir)Build\Internal\"
+copy /y "$(TargetDir)JamSoft.Prism.Styles.dll" "$(SolutionDir)Build\Internal\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using JamSoft.Prism.Core;
+using JamSoft.Prism.Core.Services;
 using JamSoft.Prism.Services;
 using JamSoft.Prism.ViewModels;
 using Microsoft.Practices.ServiceLocation;

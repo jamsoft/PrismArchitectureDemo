@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace JamSoft.Prism.Core
+namespace JamSoft.Prism.Core.Services
 {
     /// <summary>
     /// Allows the building of the application menu

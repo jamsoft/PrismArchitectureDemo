@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace JamSoft.Prism.Core
+namespace JamSoft.Prism.Core.Services
 {
     public interface IApplicationServices
     {

@@ -1,5 +1,6 @@
-﻿using JamSoft.Prism.Core;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using JamSoft.Prism.Core.Services;
+
 // ReSharper disable ClassNeverInstantiated.Global
 
 namespace JamSoft.Prism.Services
@@ -7,7 +8,7 @@ namespace JamSoft.Prism.Services
     /// <summary>
     /// Manages global commands
     /// </summary>
-    /// <seealso cref="JamSoft.Prism.Core.IApplicationServices" />
+    /// <seealso cref="IApplicationServices" />
     public class ApplicationServices : IApplicationServices
     {
         /// <summary>

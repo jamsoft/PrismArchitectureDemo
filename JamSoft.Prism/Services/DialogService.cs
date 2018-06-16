@@ -1,4 +1,4 @@
-﻿using JamSoft.Prism.Core;
+﻿using JamSoft.Prism.Core.Services;
 
 namespace JamSoft.Prism.Services
 {
