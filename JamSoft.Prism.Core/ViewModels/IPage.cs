@@ -2,7 +2,13 @@
 
 namespace JamSoft.Prism.Core.ViewModels
 {
-    public interface IPage : INavigationAware
+    /// <summary>
+    /// Defines a viewable page
+    /// </summary>
+    /// <seealso cref="IRegionMemberLifetime" />
+    /// <seealso cref="INavigationAware" />
+    public interface IPage : INavigationAware, IRegionMemberLifetime
     {
+        string Name { get; set; }
     }
 }
